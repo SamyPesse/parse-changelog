@@ -29,17 +29,23 @@ module.exports = function(source, opts) {
     var normText = opts.textAsHTML? kramed : _.identity;
 
     // Push a new version and normalize notes
-    var pushVersion = function(_version) {
-        _version.rawNote = normText(
-            _.chain(_version.notes)
+    var pushVersion = function() {
+        if (!version) return;
+        if (note) version.notes.push(note);
+
+        version.rawNote = normText(
+            _.chain(version.notes)
             .map(function(note) {
                 return '* '+note.trim();
             })
             .value()
             .join('\n')
         );
-        _version.notes = _.map(_version.notes, normText);
-        changelog.versions.push(_version);
+        version.notes = _.map(version.notes, normText);
+        changelog.versions.push(version);
+
+        note = "";
+        version = null;
     };
 
     var lexer = new kramed.Lexer({});
@@ -59,11 +65,7 @@ module.exports = function(source, opts) {
 
         // New tag
         else if (token.type == 'heading' && token.depth > titleDepth) {
-            if (version) {
-                if (note) version.notes.push(note);
-                pushVersion(version);
-            }
-            note = "";
+            if (version) pushVersion();
             version = {
                 tag: token.text,
                 notes: []
@@ -81,7 +83,7 @@ module.exports = function(source, opts) {
         }
     });
 
-    if (version) pushVersion(version);
+    if (version) pushVersion();
 
     return changelog;
 };
