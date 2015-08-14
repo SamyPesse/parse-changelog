@@ -20,7 +20,7 @@ var changelog = parseChangelog(fs.readFileSync('CHANGES.md'));
 
 > {
     title: "Release notes",
-    intro: "All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).",
+    intro: "All notable changes to this project will be documented in this file.",
     versions: [
         {
             tag: "1.0.0",
