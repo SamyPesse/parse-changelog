@@ -30,7 +30,7 @@ module.exports = function(source, opts) {
 
     // Push a new version and normalize notes
     var pushVersion = function(_version) {
-        _version.rawNotes = normText(
+        _version.rawNote = normText(
             _.chain(_version.notes)
             .map(function(note) {
                 return '* '+note.trim();
@@ -59,7 +59,11 @@ module.exports = function(source, opts) {
 
         // New tag
         else if (token.type == 'heading' && token.depth > titleDepth) {
-            if (version) pushVersion(version);
+            if (version) {
+                if (note) version.notes.push(note);
+                pushVersion(version);
+            }
+            note = "";
             version = {
                 tag: token.text,
                 notes: []

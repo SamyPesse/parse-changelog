@@ -33,6 +33,6 @@ describe('ChangeLog', function() {
 
     it('should correctly extract notes', function() {
         changelog.versions[0].should.have.property('notes');
-        changelog.versions[0].notes.should.have.lengthOf(4);
+        changelog.versions[0].notes.should.have.lengthOf(5);
     });
 });
