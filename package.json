@@ -1,6 +1,6 @@
 {
     "name": "parse-changelog",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "main": "index.js",
     "description": "API Client for GitBook (gitbook.com)",
     "author": "Samy Pessé <samypesse@gmail.com>",
