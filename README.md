@@ -16,7 +16,7 @@ And parse your changelog using:
 var fs = require('fs');
 var parseChangelog = require('parse-changelog');
 
-var changelog = parseChangelog(fs.readFileSync('CHANGES.md'));
+var changelog = parseChangelog(fs.readFileSync('CHANGES.md', { encoding: 'utf-8' }));
 
 > {
     title: "Release notes",

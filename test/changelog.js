@@ -5,11 +5,11 @@ var parseChangelog = require('../');
 
 
 describe('ChangeLog', function() {
-    var changelog = parseChangelog(fs.readFileSync(path.resolve(__dirname, 'CHANGES.md')));
+    var changelog = parseChangelog(fs.readFileSync(path.resolve(__dirname, 'CHANGES.md'), { encoding: 'utf-8' }));
 
     it('should correctly extract title', function() {
         changelog.should.have.property('title');
-        changelog.should.title.should.be.exactly('Release notes');
+        changelog.title.should.be.exactly('Release notes');
     })
 
 });
