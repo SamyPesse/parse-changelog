@@ -83,7 +83,5 @@ module.exports = function(source, opts) {
 
     if (version) pushVersion(version);
 
-    // Normalize rawNotes
-
     return changelog;
 };
