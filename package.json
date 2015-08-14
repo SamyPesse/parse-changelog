@@ -1,0 +1,30 @@
+{
+    "name": "parse-changelog",
+    "version": "0.0.0",
+    "main": "index.js",
+    "description": "API Client for GitBook (gitbook.com)",
+    "author": "Samy Pessé <samypesse@gmail.com>",
+    "license": "Apache-2.0",
+    "keywords": [
+        "changelog", "markdown"
+    ],
+    "homepage": "https://github.com/SamyPesse/parse-changelog",
+    "bugs": "https://github.com/SamyPesse/parse-changelog/issues",
+    "engines": {
+        "node": ">=0.6"
+    },
+    "dependencies": {
+        "lodash": "^3.9.3",
+        "kramed": "0.5.0"
+    },
+    "devDependencies": {
+        "mocha": "1.18.2"
+    },
+    "scripts": {
+        "test": "mocha --reporter list"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SamyPesse/parse-changelog.git"
+    }
+}
